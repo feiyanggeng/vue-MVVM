@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>{{article.title}}</h2>
+        <p>{{article.content}}</p>
+        <p>{{article.time}}</p>
+        <p v-text="brText"></p>
+        <span>{{text}}</span>
+        <input type="text" v-model="msg">
+    </div>
+    <script src="./vue/Mvue.js"></script>
+    <script>
+        let mVue = new MVue({
+            el: "#app",
+            data: {
+                article: {
+                    title: '学习vue MVVM内部原理',
+                    content: 'bala巴拉拉巴拉巴拉巴拉巴拉巴拉巴拉',
+                    time: '2020-08-14'
+                },
+                brText: '下面是评论区',
+                text: '请回答：',
+                msg: '真有意思'
+            }
+        })
+    </script>
+</body>
+</html>
