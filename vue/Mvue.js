@@ -7,7 +7,21 @@ class Compile {
         this.compile(fragment)
         this.el.appendChild(fragment)
     }
-    compile(fragment) {}
+    compile(fragment) {
+        const childNodes = fragment.childNodes;
+        [...childNodes].forEach(child => {
+            if (this.isElementNode(child)) {
+                this.compileElement(child)
+            } else {
+                this.compileText(child)
+            }
+            if (child.childNodes && child.childNodes.length) {
+                this.compile(child)
+            }
+        })
+    }
+    compileElement(node) {}
+    compileText(node) {}
     node2Fragment(node) {
         // 创建一个文档碎片
         let f = document.createDocumentFragment()
